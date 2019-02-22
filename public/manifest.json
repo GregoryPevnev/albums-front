@@ -1,0 +1,17 @@
+{
+    "name": "Full-Name",
+    "short_name": "Name",
+    "description": "Description",
+    "icons": [
+        {
+            "sizes": "512x512",
+            "type": "image/png",
+            "src": "https://cnet3.cbsistatic.com/img/Yt768C55hXNi2eGSB9qOv-e7SQg=/2011/03/16/c7675aa8-fdba-11e2-8c7c-d4ae52e62bcc/Chrome-logo-2011-03-16.jpg"
+        }
+    ],
+    "start_url": "/",
+    "orientation": "portrait-primary",
+    "display": "standalone",
+    "theme_color": "blue",
+    "background_color": "black"
+}
