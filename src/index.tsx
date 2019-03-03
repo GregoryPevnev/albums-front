@@ -9,8 +9,6 @@ import { getAlbumViewer } from "./application/viewers";
 import getUploaders from "./clients/upload/index";
 import { Actions } from "./store/actions/types";
 
-// Important: Using actual Environment-Variables for build
-
 const API_URL = String(process.env.API_URL);
 const SW = Boolean(process.env.SW);
 
