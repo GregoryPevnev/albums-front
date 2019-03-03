@@ -1,0 +1,36 @@
+.search {
+    position: relative;
+    overflow: visible;
+
+    &__input {
+        border: 1px solid #888;
+        box-shadow: $slight-shadow;
+    }
+
+    &__items {
+        position: absolute;
+        top: 100%;
+        z-index: 1000;
+        list-style: none;
+        width: 100%;
+        display: none;
+    }
+
+    &__item {
+        background: white;
+        padding: 0.5rem 1rem;
+        border: 1px solid #eee;
+        box-shadow: $slight-shadow;
+        cursor: pointer;
+
+        @include activator($light);
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+        .search__items {
+            display: block;
+        }
+    }
+}

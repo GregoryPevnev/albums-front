@@ -1,0 +1,28 @@
+.header {
+    background: $secondary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2.5rem;
+
+    &__item {
+        padding: 1rem;
+        font-size: 1.6rem;
+        border-radius: 5px;
+        margin: 0 0.5rem;
+
+        @include activator($secondary);
+
+        &--main {
+            font-size: 2.3rem;
+            font-family: "Courgette", cursive;
+        }
+
+        &--primary {
+            background: $primary;
+            color: $light;
+
+            @include activator($primary);
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.reviews {
+    margin: 1rem 2rem;
+    max-height: 420px;
+    overflow: scroll;
+
+    @media only screen and (max-width: $sm) {
+        margin: 2rem 0;
+    }
+
+    .review {
+        flex: 0 1 auto;
+        background: $light;
+        margin: 1rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #eee;
+        box-shadow: $slight-shadow;
+        position: relative;
+
+        &__head {
+            margin-bottom: 0;
+        }
+
+        &__info {
+            margin-bottom: 0;
+            font-weight: 100;
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
+            margin-bottom: 1rem;
+        }
+
+        &__rating {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: $primary;
+        }
+
+        &__action {
+            width: 100%;
+            color: $primary;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

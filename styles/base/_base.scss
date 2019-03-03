@@ -2,9 +2,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: inherit;
 }
 
 html,
 body {
     font-size: 62.5%;
+    max-width: 100%;
+    overflow: auto;
+
+    @media only screen and (max-width: $lg) {
+        font-size: 60%;
+    }
+
+    @media only screen and (max-width: $md) {
+        font-size: 55%;
+    }
+
+    @media only screen and (max-width: $xs) {
+        font-size: 52.5%;
+    }
+
+    @media only screen and (max-width: $mini) {
+        font-size: 50%;
+    }
+}
+
+a {
+    text-decoration: none;
 }

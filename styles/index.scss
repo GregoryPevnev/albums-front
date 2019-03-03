@@ -1,13 +1,26 @@
 @import "./abstract/variables";
-@import "./abstract/functions";
 @import "./abstract/mixins";
 
-@import "./base/fonts";
+@import "./base/text";
 @import "./base/base";
 @import "./base/animations";
 
 @import "./layout/header";
+@import "./layout/navbar";
+@import "./layout/sidebar";
 
 @import "./components/buttons";
+@import "./components/container";
+@import "./components/forms";
+@import "./components/album";
+@import "./components/search";
+@import "./components/loading";
+@import "./components/view";
+@import "./components/rating";
+@import "./components/reviews";
+@import "./components/player";
+@import "./components/images";
+@import "./components/modal";
 
-@import "./pages/home";
+@import "./pages/main";
+@import "./pages/app";

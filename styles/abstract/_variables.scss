@@ -1,0 +1,19 @@
+$dark: #434343;
+$primary: #2ecc71;
+$secondary: #eff2f3;
+$light: #fafafa;
+$grey: #ededed;
+$error: #ee3f2b;
+
+$light-border: #888 1px solid;
+
+$primary-gradient: linear-gradient(135deg, darken($primary, 5%), lighten($primary, 10%));
+
+$slight-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+$light-shadow: 0 0 2px rgba(1, 0, 0, 0.2);
+
+$mini: 380px;
+$xs: 566px;
+$sm: 789px;
+$md: 998px;
+$lg: 1204px;

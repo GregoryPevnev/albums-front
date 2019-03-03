@@ -1,0 +1,69 @@
+.player {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+
+    &__title {
+        margin-top: 0.5rem;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    &__bar {
+        margin: 2rem 1rem;
+        position: relative;
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: space-around;
+        margin: 0.5rem 0;
+    }
+
+    &__options {
+        position: absolute;
+        top: 0.1rem;
+        right: 0.5rem;
+
+        i {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__time {
+        position: absolute;
+        top: 7px;
+        font-size: 1rem;
+
+        &--start {
+            left: 0.5rem;
+        }
+
+        &--end {
+            right: 0.5rem;
+        }
+    }
+
+    .progress {
+        position: relative;
+        height: 2px;
+        background: $secondary;
+
+        &__btn {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+            border: none;
+            top: 0;
+            left: 0;
+            transform: translateY(-50%);
+            background: $secondary;
+            cursor: pointer;
+
+            &--active {
+                background: $primary;
+            }
+        }
+    }
+}

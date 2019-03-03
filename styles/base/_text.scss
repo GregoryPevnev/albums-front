@@ -1,0 +1,53 @@
+* {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: $dark;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: lighter;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    text-align: justify;
+}
+
+.centerer {
+    text-align: center;
+}
+
+hr {
+    margin: 1rem;
+}
+
+.success {
+    color: $primary;
+}
+
+.error {
+    color: $error;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,19 @@
+.image {
+    width: 25rem;
+    height: 25rem;
+
+    @media only screen and (max-width: $md) {
+        width: 22.5rem;
+        height: 22.5rem;
+    }
+
+    @media only screen and (max-width: $xs) {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    @media only screen and (max-width: $mini) {
+        width: 25rem;
+        height: 25rem;
+    }
+}

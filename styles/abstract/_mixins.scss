@@ -1,0 +1,20 @@
+@mixin centerer($by: 40%) {
+    top: $by;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+@mixin activator($color) {
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &--active:not(:disabled) {
+        background: darken($color, 5%);
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}

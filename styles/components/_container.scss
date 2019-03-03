@@ -1,0 +1,46 @@
+.container {
+    background: $secondary;
+    margin: 1rem 3rem;
+    padding: 2rem;
+
+    &__columns {
+        display: flex;
+
+        @media only screen and (max-width: $md) {
+            flex-direction: column;
+        }
+    }
+
+    &__text-column {
+        flex: 1 1 auto;
+        padding: 1rem 2rem;
+        p {
+            text-align: center;
+        }
+    }
+
+    &__btns-column {
+        flex: 0 0 auto;
+        border-left: $light-border;
+        padding: 1rem 2rem;
+        min-width: 50rem;
+
+        @media only screen and (max-width: $md) {
+            min-width: auto;
+            border-left: none;
+            margin-top: 5rem;
+            p {
+                text-align: center;
+                margin: 2rem;
+            }
+        }
+    }
+
+    &--panel {
+        margin: 0rem auto;
+        height: 80%;
+        max-width: 550px;
+        width: 90%;
+        padding: 1rem 2rem;
+    }
+}

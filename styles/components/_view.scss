@@ -1,0 +1,129 @@
+.view {
+    max-width: 100rem;
+    width: 90%;
+    margin: 0 auto;
+    overflow: scroll;
+    padding: 2rem 5rem;
+
+    @media only screen and (max-width: $sm) {
+        padding: 1rem 2rem;
+    }
+
+    @media only screen and (max-width: $xs) {
+        width: 100%;
+    }
+
+    &__panel {
+        background: $light;
+        border-radius: 2.5px;
+        margin: 2rem 0;
+        box-shadow: $slight-shadow;
+        padding: 2rem 3rem;
+
+        @media only screen and (max-width: $sm) {
+            padding: 1rem 2rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .details {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        position: relative;
+
+        @media only screen and (max-width: $xs) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__btns {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+
+            @media only screen and (max-width: $xs) {
+                justify-content: center;
+                margin-top: 5rem;
+            }
+        }
+
+        &__info {
+            margin: 1rem 2rem;
+            margin-right: 5rem;
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+            align-self: stretch;
+
+            @media only screen and (max-width: $xs) {
+                text-align: center;
+            }
+        }
+
+        &__rating {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $primary;
+
+            span {
+                font-size: 2.4rem;
+                display: inline-block;
+                margin-right: 2px;
+            }
+
+            i {
+                font-size: 2rem;
+            }
+
+            @media only screen and (max-width: $xs) {
+                top: 100%;
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    .tracks {
+        width: 90%;
+        margin: 1rem auto;
+        font-weight: lighter;
+        max-height: 250px;
+        overflow: scroll;
+
+        &__track {
+            padding: 0.5rem 2rem;
+            border-bottom: 1px solid #aaa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: $primary;
+                border-bottom-color: $primary;
+            }
+        }
+
+        &__input {
+            display: inline-block;
+            background: transparent;
+            border: none;
+            flex: 1 1 auto;
+        }
+
+        &__number {
+            display: inline-block;
+            width: 2rem;
+            border-right: 1px solid #ddd;
+            margin-right: 2rem;
+        }
+    }
+}

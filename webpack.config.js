@@ -9,16 +9,10 @@ const dotenv = require("dotenv");
 
 const plugins = [];
 
-// parsed - { "[CONFIG]": [VALUE] } -> Inject into Files(DefinePlugin - Manually / Environment - Automatically)
-if (fs.existsSync(".env")) {
-    const { parsed } = dotenv.config({ path: ".env" });
-    // Inject everything read from environment-variables into 'process.env'
-    plugins.push(new EnvironmentPlugin(Object.keys(parsed)));
-}
-
 const outputPath = path.join(__dirname, "dist");
+const ENV = String(process.env.NODE_ENV);
 
-if (String(process.env.NODE_ENV) === "production") {
+if (ENV === "production") {
     // Production-Plugins
     plugins.push(new CleanPlugin([outputPath]));
     plugins.push(
@@ -33,6 +27,13 @@ if (String(process.env.NODE_ENV) === "production") {
     );
 }
 
+// parsed - { "[CONFIG]": [VALUE] } -> Inject into Files(DefinePlugin - Manually / Environment - Automatically)
+if (fs.existsSync(".env") && ENV !== "production") {
+    const { parsed } = dotenv.config({ path: ".env" });
+    // Inject everything read from environment-variables into 'process.env'
+    plugins.push(new EnvironmentPlugin(Object.keys(parsed)));
+}
+
 module.exports = {
     entry: ["@babel/polyfill", "whatwg-fetch", "./index.js"],
     output: {
@@ -41,16 +42,7 @@ module.exports = {
         publicPath: "/" // Root for all Assets(Used by HTML-Plugin for injecting assets using /[path])
     },
     resolve: {
-        extensions: [
-            ".tsx",
-            ".ts",
-            ".js",
-            ".mjs",
-            ".gql",
-            ".graphql",
-            ".json",
-            "*"
-        ] // ALWAYS resolve JS(Modules/etc.)
+        extensions: [".tsx", ".ts", ".js", ".mjs", ".gql", ".graphql", ".json", "*"] // ALWAYS resolve JS(Modules/etc.)
     },
     module: {
         rules: [
@@ -64,33 +56,13 @@ module.exports = {
                 exclude: [/node_modules/],
                 use: ["babel-loader", "ts-loader"]
             },
-            // GraphQL Support (Apollo Client)
-            {
-                test: /\.mjs$/,
-                include: /node_modules/,
-                type: "javascript/auto"
-            },
             {
                 test: /\.css$/,
                 use: [MiniCssPlugin.loader, "css-loader", "postcss-loader"]
             },
             {
                 test: /\.scss$/,
-                use: [
-                    MiniCssPlugin.loader,
-                    "css-loader",
-                    "postcss-loader",
-                    "sass-loader"
-                ]
-            },
-            {
-                test: /\.(png|txt|woff|jpe?g|tiff)$/,
-                use: {
-                    loader: "file-loader",
-                    options: {
-                        name: "[path][name].[ext]"
-                    }
-                }
+                use: [MiniCssPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
             }
         ]
     },
@@ -101,7 +73,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: "./public", // Manifest, Service Workers, etc.
-        port: 3000, // Servig from a port
+        port: 4000, // Servig from a port
         historyApiFallback: true // SPA Support(React)
     }
 };

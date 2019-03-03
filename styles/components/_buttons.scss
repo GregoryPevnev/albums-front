@@ -1,0 +1,113 @@
+.btn {
+    display: inline-block;
+    color: $dark;
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 100px;
+    cursor: pointer;
+
+    @include activator($secondary);
+
+    &--primary {
+        background: $primary;
+        color: $light;
+        @include activator($primary);
+    }
+
+    &--block {
+        min-width: 100px;
+        max-width: 200px;
+        display: block;
+        margin: 1rem auto;
+    }
+
+    &--full {
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+
+    &--inline {
+        display: inline;
+        border-bottom: 1px solid $dark;
+        padding: 1px 5px;
+        border-radius: 0;
+
+        &:hover,
+        &.active {
+            border-bottom-color: $primary;
+            background: transparent;
+            color: $primary;
+        }
+    }
+
+    &--toggle {
+        display: inline-block;
+        padding: 0 0.5rem;
+        border: none;
+
+        &:hover,
+        &.active {
+            background: transparent !important;
+            color: $primary;
+        }
+
+        &--danger,
+        &--danger:hover,
+        &--danger.active {
+            color: $error;
+        }
+    }
+
+    &--fixed {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &--floating {
+        bottom: 12rem;
+        right: 2rem;
+        border-radius: 50%;
+        width: 6rem;
+        height: 6rem;
+        box-shadow: $light-shadow;
+        position: fixed;
+
+        @media only screen and (max-width: $mini) {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        i {
+            @include centerer(50%);
+        }
+    }
+
+    &--burger {
+        display: none;
+        max-width: 30px;
+        padding: 0 5px;
+        border-radius: 2px;
+
+        i {
+            font-size: 2.5rem;
+            margin: auto;
+        }
+
+        &--sm {
+            @media only screen and (min-width: $xs+1) and (max-width: $sm) {
+                display: flex;
+            }
+        }
+
+        &--xs {
+            @media only screen and (max-width: $xs) {
+                display: flex;
+            }
+        }
+    }
+}
