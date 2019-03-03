@@ -12,7 +12,6 @@ export const getFile = (type: string): Promise<File | null> =>
             document.body.removeChild(fileInput);
         };
 
-        // IMPORTANT: onchange - NOT eventlistener => Single even fires at a time
         fileInput.addEventListener("change", listener);
         fileInput.click();
     });
