@@ -23,7 +23,8 @@ class ProgressBar extends Component<Props, State> {
     private static readonly ARROW = 5;
     private static readonly EDGE = 20;
 
-    private subscription: any;
+    private mouseSubscription: any;
+    private touchSubscription: any;
     private bar: HTMLDivElement | null = null;
 
     private setPosition({ x, start, end }: Position) {
@@ -35,10 +36,9 @@ class ProgressBar extends Component<Props, State> {
         this.props.onChange(newTime);
     }
 
-    private onMouseMove(e: MouseEvent) {
+    private onMove(e: { x: number; y: number }) {
         if (!this.props.isActive || !this.state.isDragging) return;
         if (!this.bar) throw new Error("HTML DOM Error");
-
         const rect = this.bar.getBoundingClientRect();
 
         const x = e.x - ProgressBar.ARROW,
@@ -50,6 +50,16 @@ class ProgressBar extends Component<Props, State> {
             this.setDragging(false);
 
         this.setPosition({ x, start, end });
+    }
+
+    private onMouseMove(e: MouseEvent) {
+        const { x, y } = e;
+        this.onMove({ x, y });
+    }
+
+    private onTouchMove(e: TouchEvent) {
+        const { clientX, clientY } = e.touches[0];
+        this.onMove({ x: clientX, y: clientY });
     }
 
     private setDragging(isDragging: boolean) {
@@ -68,17 +78,20 @@ class ProgressBar extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.subscription = this.onMouseMove.bind(this);
+        this.mouseSubscription = this.onMouseMove.bind(this);
+        this.touchSubscription = this.onTouchMove.bind(this);
     }
 
     public state = { isDragging: false };
 
     public componentDidMount() {
-        window.addEventListener("mousemove", this.subscription);
+        window.addEventListener("mousemove", this.mouseSubscription);
+        window.addEventListener("touchmove", this.touchSubscription);
     }
 
     public componentWillUnmount() {
-        window.removeEventListener("mousemove", this.subscription);
+        window.removeEventListener("mousemove", this.mouseSubscription);
+        window.removeEventListener("touchmove", this.touchSubscription);
     }
 
     public render() {
@@ -86,8 +99,16 @@ class ProgressBar extends Component<Props, State> {
             <div className="progress" ref={div => (this.bar = div)}>
                 <button
                     className={`progress__btn ${this.props.isActive ? "progress__btn--active" : ""}`}
-                    onMouseDown={this.setDragging.bind(this, true)}
-                    onMouseUp={this.setDragging.bind(this, false)}
+                    onMouseDown={() => this.setDragging(true)}
+                    onTouchStart={() => {
+                        console.log("Start");
+                        this.setDragging(true);
+                    }}
+                    onMouseUp={() => this.setDragging(false)}
+                    onTouchEnd={() => {
+                        this.setDragging(false);
+                        console.log("Ended");
+                    }}
                     style={{ left: this.getX() }}
                 />
             </div>

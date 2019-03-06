@@ -1,5 +1,5 @@
-const STATIC_CACHE = "static-v-1";
-const DYNAMIC_CACHE = "dynamic-v-1";
+const STATIC_CACHE = "static-v-2";
+const DYNAMIC_CACHE = "dynamic-v-2";
 
 const parseURL = requestURL => {
     const url = String(requestURL || "/");

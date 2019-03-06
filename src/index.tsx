@@ -57,5 +57,5 @@ ReactDOM.render(
 
 if (SW) {
     console.log("Using Service Worker", SW);
-    if ("serviceWorker" in window.navigator) window.navigator.serviceWorker.register("/sw.js");
+    if (window.navigator.serviceWorker) window.navigator.serviceWorker.register("/sw.js");
 }

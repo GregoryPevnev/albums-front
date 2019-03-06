@@ -13,23 +13,28 @@ const outputPath = path.join(__dirname, "dist");
 const ENV = String(process.env.NODE_ENV);
 
 if (ENV === "production") {
-    // Production-Plugins
-    plugins.push(new CleanPlugin([outputPath]));
     plugins.push(
         new CopyPlugin([
             {
                 from: "./public/*", // Copying from
                 to: "./", // Copying to Root
-                ignore: ["index.html"], // NOT copying 'index.html' - Used by HtmlPlugin
                 flatten: true // Removes directories(VERY Useful)
             }
         ])
     );
+} else {
+    plugins.push(
+        new HtmlPlugin({
+            template: "./assets/index.html"
+        })
+    );
 }
 
-// parsed - { "[CONFIG]": [VALUE] } -> Inject into Files(DefinePlugin - Manually / Environment - Automatically)
-if (fs.existsSync(".env") && ENV !== "production") {
-    const { parsed } = dotenv.config({ path: ".env" });
+const envFile = ENV === "production" ? ".env.production" : ".env";
+
+if (fs.existsSync(envFile)) {
+    // parsed - { "[CONFIG]": [VALUE] } -> Inject into Files(DefinePlugin - Manually / Environment - Automatically)
+    const { parsed } = dotenv.config({ path: ENV === "production" ? ".env.production" : ".env" });
     // Inject everything read from environment-variables into 'process.env'
     plugins.push(new EnvironmentPlugin(Object.keys(parsed)));
 }
@@ -66,11 +71,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new MiniCssPlugin({ filename: "index.css" }),
-        new HtmlPlugin({ template: "./public/index.html" }),
-        ...plugins
-    ],
+    plugins: [new MiniCssPlugin({ filename: "index.css" }), ...plugins],
     devServer: {
         contentBase: "./public", // Manifest, Service Workers, etc.
         port: 4000, // Servig from a port
