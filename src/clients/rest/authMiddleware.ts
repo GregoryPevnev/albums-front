@@ -29,7 +29,8 @@ const initailizeAuth = (axios: AxiosInstance, authChange: (authed: boolean) => a
                 deleteAuth();
                 authChange(false);
             }
-            return error;
+
+            return Promise.reject(error);
         }
     );
 };

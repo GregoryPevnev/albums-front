@@ -33,6 +33,7 @@ const SignUpComponent = ({ signUp, history }: Props) => (
                         await signUp({ email, username, password });
                         history.push("/app");
                     } catch (e) {
+                        console.log(e);
                         actions.setFieldError(e.type, `User with such ${e.type} already exists`);
                     }
 

@@ -25,6 +25,8 @@ export const getSignUp = (axios: AxiosInstance): SignUp => async data => {
             data
         });
 
+        console.log(result);
+
         return result.data.user;
     } catch (e) {
         const result = e.response.data.error;
