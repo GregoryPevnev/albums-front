@@ -34,6 +34,9 @@ sudo rm  -rf build.tar.gz dist
 SSH_END
 }
 
+REMOTE_IP="$1"
+REMOTE_USER="$2"
+
 [ -z "$REMOTE_IP" ] && { echo "Enter IP-Address to deploy to"; exit 1; }
 [ -z "$REMOTE_USER" ] && { echo "Enter Remote-Machine's user"; exit 1; }
 
