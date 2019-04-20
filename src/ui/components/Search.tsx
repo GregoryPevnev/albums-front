@@ -39,6 +39,7 @@ class Search extends Component<Props, State> {
                     value={this.state.search}
                     onChange={this.handleInput.bind(this)}
                     onKeyUp={this.checkSubmit.bind(this)}
+                    title="Please search for whole words only"
                 />
 
                 <ul className="search__items">

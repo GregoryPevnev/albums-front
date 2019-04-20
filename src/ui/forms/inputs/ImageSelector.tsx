@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { getFile } from "../utils";
+import { getFile } from "./utils";
 import { DEFAULT_IMAGE } from "../../../clients/upload/index";
 
 interface Props {

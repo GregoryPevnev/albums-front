@@ -52,7 +52,7 @@ class SidebarComponent extends Component<Props> {
 
                 <div className="sidebar__links">
                     <h3>Liked Albums</h3>
-                    <div>{this.renderList()}</div>
+                    {this.renderList()}
                 </div>
 
                 <div className="sidebar__controls">

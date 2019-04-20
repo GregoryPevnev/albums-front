@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Field } from "formik";
 import { UploadObject } from "../../../application/upload";
-import { getFile } from "../utils";
+import { getFile } from "./utils";
 
 interface Props {
     tracks: UploadObject[];

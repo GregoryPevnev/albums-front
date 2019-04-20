@@ -18,7 +18,7 @@
         margin: 1rem 0;
         background: darken($primary, 5%);
         max-height: 100%;
-        overflow: scroll;
+        overflow: hidden;
     }
 
     &__link {
