@@ -10,6 +10,7 @@ import getUploaders from "./clients/upload/index";
 import { Actions } from "./store/actions/types";
 
 const API_URL = String(process.env.API_URL);
+console.log(API_URL)
 const SW = Boolean(process.env.SW);
 
 const {

@@ -1,4 +1,4 @@
-import { SortBy } from "../../../backend/src/application/albums/albumQueries";
+import { SortBy } from "../application/loaders";
 
 export const getSortBy = (search: string): SortBy => {
     const match = search.match(/^\?mode=(top|recent)$/);

@@ -2,7 +2,7 @@
     max-width: 100rem;
     width: 90%;
     margin: 0 auto;
-    overflow: scroll;
+    overflow: hidden;
     padding: 2rem 5rem;
 
     @media only screen and (max-width: $sm) {
@@ -96,7 +96,7 @@
         margin: 1rem auto;
         font-weight: lighter;
         max-height: 250px;
-        overflow: scroll;
+        overflow-y: scroll;
 
         &__track {
             padding: 0.5rem 2rem;
